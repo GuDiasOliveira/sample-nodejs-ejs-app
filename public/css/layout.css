@@ -1,0 +1,8 @@
+body {
+	max-width: 1200px;
+	margin: 20px auto;
+}
+
+.table thead {
+	font-weight: bold;
+}

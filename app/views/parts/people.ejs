@@ -1,0 +1,23 @@
+<h5><%= whose %>'s</h5>
+<table class="table">
+	<thead>
+		<tr>
+			<td>Número</td>
+			<td>Nome</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% people.forEach(function(person) { %>
+			<tr>
+				<td><%= person.number %></td>
+				<td><%= person.name %></td>
+				<td>
+					<form action="/remove" method="post" class="form-remove" data-idperson="<%= person.id %>">
+						<input type="hidden" name="idPerson" value="<%= person.id %>">
+						<a href="javascript:$('.form-remove[data-idperson=<%= person.id %>]').submit()">Excluir</a>
+					</form>
+				</td>
+			</tr>
+		<% }); %>
+	</tbody>
+</table>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>.:Sample EJS - <%= title %></title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body>
+	<%- '<h2>Hallo! :D</h2>' %>
+	<%- include parts/oiis %>
+
+	<div class="alert alert-primary" role="alert">
+		Bom diaa. The book's on the table
+	</div>
+
+	<form action="/add" method="post">
+		Meu nome: <input type="text" name="name">
+		<input type="submit" value="Enviar" class="btn btn-success">
+	</form>
+
+	<%- include('parts/people', {whose: 'Teacher'}) %>
+
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</body>
+</html>
