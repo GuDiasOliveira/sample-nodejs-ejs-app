@@ -12,58 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-var db = {
-	connect: function(callback) {
-		this.connection = mysql.createConnection({
-			host: 'localhost',
-			user: 'root',
-			password: 'a1234',
-			database: 'testes'
-		});
-		this.connection.connect(function(err) {
-			if (err)
-				console.log('Falha na conexão com o banco');
-			else
-				console.log('Conectado no banco com sucesso');
-			callback(err);
-		});
-	},
-
-	insert: function(person, callback) {
-		var sql = 'INSERT INTO person SET ?';
-		this.connection.query(sql, {number: person.number, name: person.name}, function (err, result) {
-			callback(err);
-		});
-	},
-
-	remove: function(idPerson, callback) {
-		var sql = 'DELETE FROM person WHERE idPerson = ?';
-		this.connection.query(sql, [idPerson], function (err, result) {
-			callback(err);
-		});
-	},
-
-	list: function(callback) {
-		var sql = 'SELECT * FROM person';
-		this.connection.query(sql, [], function (err, result) {
-			if (err) {
-				callback(null);
-			} else {
-				var people = [];
-				result.forEach(function(res) {
-					people.push({
-						id : res.idperson,
-						number : res.number,
-						name : res.name
-					});
-				});
-				callback(people);
-			}
-		});
-	}
-};
-
-db.connect(function(err) { });
+var db = require('./config/dbPerson');
 
 
 app.get('/process', function (req, res) {
