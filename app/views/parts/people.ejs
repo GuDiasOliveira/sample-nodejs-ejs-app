@@ -2,8 +2,8 @@
 <table class="table">
 	<thead>
 		<tr>
-			<td>Número</td>
-			<td>Nome</td>
+			<td>Number</td>
+			<td>Name</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -14,7 +14,7 @@
 				<td>
 					<form action="/remove" method="post" class="form-remove" data-idperson="<%= person.id %>">
 						<input type="hidden" name="idPerson" value="<%= person.id %>">
-						<a href="javascript:$('.form-remove[data-idperson=<%= person.id %>]').submit()">Excluir</a>
+						<a href="javascript:$('.form-remove[data-idperson=<%= person.id %>]').submit()">Delete</a>
 					</form>
 				</td>
 			</tr>
